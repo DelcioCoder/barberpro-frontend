@@ -44,17 +44,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const checkAuth = async () => {
       try {
         if (apiService.isAuthenticated()) {
-          // Aqui você pode fazer uma chamada para obter os dados do usuário
-          // Por enquanto, vamos apenas verificar se o token existe
-          setUser({
-            id: 1,
-            username: 'admin',
-            email: 'admin@example.com',
-            first_name: 'Admin',
-            last_name: 'User',
-            is_staff: true,
-            is_superuser: true,
-          });
+          // Obter dados do usuário da API
+          const userData = await apiService.getUserProfile();
+          setUser(userData);
         }
       } catch (error) {
         console.error('Erro ao verificar autenticação:', error);
@@ -72,16 +64,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setLoading(true);
       await apiService.login({ username, password });
       
-      // Após login bem-sucedido, definir o usuário
-      setUser({
-        id: 1,
-        username,
-        email: `${username}@example.com`,
-        first_name: username,
-        last_name: 'User',
-        is_staff: true,
-        is_superuser: false,
-      });
+      // Após login bem-sucedido, obter dados do usuário
+      const userData = await apiService.getUserProfile();
+      setUser(userData);
     } catch (error) {
       console.error('Erro no login:', error);
       throw error;

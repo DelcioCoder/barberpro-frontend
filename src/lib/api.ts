@@ -226,6 +226,11 @@ class ApiService {
     return response.data;
   }
 
+  async register(userData: { username: string; email: string; password: string }) {
+    const response = await this.api.post('/api/auth/register/', userData);
+    return response.data;
+  }
+
   async refreshToken() {
     const refresh = localStorage.getItem('refresh_token');
     if (!refresh) throw new Error('No refresh token');
@@ -240,6 +245,11 @@ class ApiService {
   async logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+  }
+
+  async getUserProfile() {
+    const response = await this.api.get('/api/auth/profile/');
+    return response.data;
   }
 
   // Métodos para Tenants
@@ -357,6 +367,10 @@ class ApiService {
   async updateAppointment(id: number, appointmentData: Partial<Appointment>): Promise<Appointment> {
     const response = await this.api.put(`/api/appointments/${id}/`, appointmentData);
     return response.data;
+  }
+
+  async deleteAppointment(id: number): Promise<void> {
+    await this.api.delete(`/api/appointments/${id}/`);
   }
 
   async cancelAppointment(id: number, reason?: string): Promise<Appointment> {

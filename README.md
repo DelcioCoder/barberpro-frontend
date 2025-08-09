@@ -1,219 +1,213 @@
 # BarberPro Frontend
 
-Frontend moderno e responsivo para o sistema de gestão de barbearias BarberPro, desenvolvido com Next.js 15, TypeScript e Tailwind CSS.
+Sistema de gestão para barbearias desenvolvido em Next.js com TypeScript, focado no mercado angolano.
 
-## 🚀 Características
+## 🚀 Funcionalidades
 
-- **Interface Moderna**: Design limpo e profissional com Tailwind CSS
-- **Responsivo**: Otimizado para desktop, tablet e mobile
-- **TypeScript**: Tipagem estática para melhor desenvolvimento
-- **Autenticação**: Sistema de login/logout com JWT
-- **Navegação**: Menu lateral responsivo com navegação intuitiva
-- **Dashboard**: Métricas em tempo real e visão geral do negócio
-- **Adaptado para Angola**: Moeda local (AOA), mobile-first, otimizado para conexões lentas
+- **Autenticação completa** - Login e registro de usuários
+- **Dashboard interativo** - Métricas em tempo real e visão geral do negócio
+- **Gestão de agendamentos** - Criação, edição, cancelamento e acompanhamento
+- **Gestão de clientes** - Cadastro e histórico completo
+- **Gestão de barbeiros** - Perfis e especializações
+- **Gestão de serviços** - Catálogo de serviços e preços
+- **Controle financeiro** - Relatórios e métricas de faturamento
+- **Interface responsiva** - Otimizada para mobile e desktop
+- **Design moderno** - UI/UX intuitiva com Tailwind CSS
 
 ## 🛠️ Tecnologias
 
-- **Next.js 15**: Framework React com App Router
-- **TypeScript**: Tipagem estática
-- **Tailwind CSS**: Framework CSS utilitário
-- **Lucide React**: Ícones modernos
-- **Axios**: Cliente HTTP
-- **React Hook Form**: Gerenciamento de formulários
-- **Zod**: Validação de esquemas
-- **date-fns**: Manipulação de datas
+- **Next.js 15** - Framework React com App Router
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilização utilitária
+- **Lucide React** - Ícones
+- **Axios** - Cliente HTTP
+- **date-fns** - Manipulação de datas
+- **React Hook Form** - Gerenciamento de formulários
+- **Zod** - Validação de schemas
 
-## 📦 Instalação
+## 📋 Pré-requisitos
+
+- Node.js 18+ 
+- npm ou yarn
+- Backend BarberPro rodando (ver [README do backend](../README.md))
+
+## 🔧 Instalação
 
 1. **Clone o repositório**
-   ```bash
-   git clone <repository-url>
-   cd barberpro-frontend
-   ```
+```bash
+git clone <repository-url>
+cd barberpro-backend/barberpro-frontend
+```
 
 2. **Instale as dependências**
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+# ou
+yarn install
+```
 
 3. **Configure as variáveis de ambiente**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Edite o arquivo `.env.local`:
-   ```env
-   NEXT_PUBLIC_API_URL=http://localhost:8000
-   NEXT_PUBLIC_APP_NAME=BarberPro
-   NEXT_PUBLIC_APP_VERSION=1.0.0
-   NEXT_PUBLIC_DEBUG=true
-   ```
+```bash
+cp env.example .env.local
+```
 
-4. **Execute o servidor de desenvolvimento**
-   ```bash
-   npm run dev
-   ```
+Edite o arquivo `.env.local`:
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
 
-5. **Acesse a aplicação**
-   ```
-   http://localhost:3000
-   ```
+4. **Inicie o servidor de desenvolvimento**
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+O frontend estará disponível em `http://localhost:3000`
 
 ## 🏗️ Estrutura do Projeto
 
 ```
 src/
-├── app/                    # App Router do Next.js
+├── app/                    # App Router (Next.js 13+)
 │   ├── (auth)/            # Rotas de autenticação
-│   │   ├── login/
-│   │   └── register/
-│   ├── dashboard/         # Dashboard principal
+│   │   ├── login/         # Página de login
+│   │   └── register/      # Página de registro
 │   ├── appointments/      # Gestão de agendamentos
-│   ├── clients/          # Gestão de clientes
-│   ├── barbers/          # Gestão de barbeiros
-│   ├── services/         # Gestão de serviços
-│   ├── inventory/        # Gestão de estoque
-│   ├── reports/          # Relatórios
-│   └── settings/         # Configurações
-├── components/           # Componentes reutilizáveis
-│   ├── ui/              # Componentes base (shadcn/ui)
-│   ├── layout/          # Layouts da aplicação
-│   ├── appointment/     # Componentes de agendamento
-│   ├── dashboard/       # Componentes do dashboard
-│   └── forms/           # Formulários
-└── lib/                 # Utilitários e configurações
-    ├── api.ts           # Cliente da API
-    ├── auth-context.tsx # Contexto de autenticação
-    └── utils.ts         # Funções utilitárias
+│   ├── dashboard/         # Dashboard principal
+│   └── layout.tsx         # Layout raiz
+├── components/            # Componentes reutilizáveis
+│   ├── ui/               # Componentes base (shadcn/ui)
+│   ├── layout/           # Layouts específicos
+│   └── appointment/      # Componentes de agendamento
+└── lib/                  # Utilitários e configurações
+    ├── api.ts            # Cliente da API
+    ├── auth-context.tsx  # Contexto de autenticação
+    └── utils.ts          # Funções utilitárias
 ```
-
-## 🔧 Scripts Disponíveis
-
-- `npm run dev` - Servidor de desenvolvimento
-- `npm run build` - Build de produção
-- `npm run start` - Servidor de produção
-- `npm run lint` - Verificação de linting
-- `npm run lint:fix` - Correção automática de linting
-- `npm run type-check` - Verificação de tipos TypeScript
-- `npm run format` - Formatação de código
-- `npm run format:check` - Verificação de formatação
-
-## 🎨 Componentes UI
-
-O projeto utiliza componentes baseados no [shadcn/ui](https://ui.shadcn.com/) com Tailwind CSS:
-
-- **Button**: Botões com variantes e tamanhos
-- **Card**: Cards para conteúdo
-- **Input**: Campos de entrada
-- **Label**: Rótulos para formulários
-- **Badge**: Badges para status
-- **Avatar**: Avatares de usuário
-- **Select**: Seletores dropdown
-- **Calendar**: Calendário para agendamentos
 
 ## 🔐 Autenticação
 
-O sistema de autenticação utiliza:
+O sistema usa JWT (JSON Web Tokens) para autenticação:
 
-- **JWT Tokens**: Access e refresh tokens
-- **Context API**: Gerenciamento de estado global
-- **Interceptors**: Adição automática de headers
-- **Proteção de Rotas**: Redirecionamento automático
+- **Login**: `/login` - Autenticação de usuários
+- **Registro**: `/register` - Criação de novas contas
+- **Proteção de rotas**: Layout autenticado para páginas privadas
+- **Persistência**: Tokens armazenados no localStorage
 
-### Uso do Context de Autenticação
+## 📱 Páginas Principais
 
-```typescript
-import { useAuth } from '@/lib/auth-context';
+### Dashboard (`/dashboard`)
+- Métricas em tempo real
+- Agendamentos do dia
+- Resumo financeiro
+- Ações rápidas
 
-function MyComponent() {
-  const { user, login, logout, isAuthenticated } = useAuth();
-  
-  // Usar os métodos de autenticação
-}
+### Agendamentos (`/appointments`)
+- Lista de todos os agendamentos
+- Filtros avançados (data, status, barbeiro)
+- Ações em lote
+- Busca por cliente/telefone
+
+### Detalhes do Agendamento (`/appointments/[id]`)
+- Informações completas
+- Histórico de mudanças
+- Ações de status
+- Dados financeiros
+
+## 🎨 Design System
+
+O projeto usa um design system consistente baseado em:
+
+- **Cores**: Paleta laranja/marrom (tema barbearia)
+- **Tipografia**: Inter (sans-serif)
+- **Componentes**: shadcn/ui + Tailwind CSS
+- **Ícones**: Lucide React
+- **Responsividade**: Mobile-first
+
+## 🔧 Scripts Disponíveis
+
+```bash
+# Desenvolvimento
+npm run dev          # Inicia servidor de desenvolvimento
+npm run build        # Build para produção
+npm run start        # Inicia servidor de produção
+
+# Qualidade de código
+npm run lint         # Executa ESLint
+npm run lint:fix     # Corrige problemas de linting
+npm run type-check   # Verifica tipos TypeScript
+npm run format       # Formata código com Prettier
 ```
 
-## 📱 Responsividade
+## 🌐 Configuração para Produção
 
-O frontend é totalmente responsivo com:
+1. **Build do projeto**
+```bash
+npm run build
+```
 
-- **Mobile-First**: Design otimizado para smartphones
-- **Breakpoints**: sm, md, lg, xl, 2xl
-- **Navegação Adaptativa**: Menu hambúrguer em mobile
-- **Grid Flexível**: Layouts que se adaptam ao tamanho da tela
+2. **Configure as variáveis de ambiente de produção**
+```env
+NEXT_PUBLIC_API_URL=https://api.barberpro.ao
+```
 
-## 🌍 Adaptações para Angola
+3. **Deploy**
+O projeto pode ser deployado em:
+- Vercel (recomendado)
+- Netlify
+- AWS Amplify
+- Qualquer servidor Node.js
 
-- **Moeda Local**: Preços em Kwanzas (AOA)
-- **Formatação**: Números formatados para o padrão local
-- **Mobile-First**: Considerando o alto uso de smartphones
-- **Performance**: Otimizado para conexões 3G
-- **Offline**: Funcionalidades básicas sem internet
-
-## 🔌 Integração com Backend
+## 🔗 Integração com Backend
 
 O frontend se comunica com o backend através da API REST:
 
-```typescript
-import { apiService } from '@/lib/api';
-
-// Exemplos de uso
-const appointments = await apiService.getAppointments();
-const newClient = await apiService.createClient(clientData);
-const metrics = await apiService.getDashboardMetrics();
-```
-
-## 🚀 Deploy
-
-### Vercel (Recomendado)
-
-1. Conecte seu repositório ao Vercel
-2. Configure as variáveis de ambiente
-3. Deploy automático a cada push
-
-### Outras Plataformas
-
-- **Netlify**: Build command: `npm run build`, Publish directory: `out`
-- **Railway**: Configuração automática
-- **Docker**: Use o Dockerfile incluído
+- **Base URL**: Configurada em `NEXT_PUBLIC_API_URL`
+- **Autenticação**: JWT Bearer Token
+- **Interceptors**: Refresh automático de tokens
+- **Tratamento de erros**: Centralizado no cliente Axios
 
 ## 🧪 Testes
 
 ```bash
-# Executar testes
-npm test
-
-# Executar testes em modo watch
+# Executar testes (quando implementados)
+npm run test
 npm run test:watch
-
-# Cobertura de testes
-npm run test:coverage
 ```
 
-## 📝 Contribuição
+## 📊 Performance
+
+O projeto é otimizado para:
+
+- **Conexões lentas**: Lazy loading e code splitting
+- **Mobile**: Interface responsiva e touch-friendly
+- **SEO**: Meta tags e estrutura semântica
+- **Acessibilidade**: ARIA labels e navegação por teclado
+
+## 🤝 Contribuição
 
 1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
+2. Crie uma branch para sua feature
+3. Commit suas mudanças
+4. Push para a branch
 5. Abra um Pull Request
 
-## 📄 Licença
+## 📝 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT.
 
 ## 🆘 Suporte
 
 - **Documentação**: [docs.barberpro.ao](https://docs.barberpro.ao)
 - **Email**: suporte@barberpro.ao
-- **WhatsApp**: +244 123 456 789
+- **Issues**: GitHub Issues
 
-## 🔄 Changelog
+## 🚀 Roadmap
 
-### v1.0.0 (2024-01-15)
-- ✨ Lançamento inicial
-- 🎨 Interface moderna com Tailwind CSS
-- 🔐 Sistema de autenticação JWT
-- 📱 Design responsivo mobile-first
-- 🌍 Adaptações para o mercado angolano
-- 📊 Dashboard com métricas em tempo real
-- 🔧 Integração completa com backend multitenancy
+- [ ] App mobile nativo
+- [ ] Notificações push
+- [ ] Integração com WhatsApp
+- [ ] Sistema de fidelidade
+- [ ] Relatórios avançados
+- [ ] Integração com gateways de pagamento
